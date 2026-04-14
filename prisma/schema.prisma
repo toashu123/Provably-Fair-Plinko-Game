@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Round {
+  id               String    @id @default(cuid())
+  createdAt        DateTime  @default(now())
+  status           String    @default("COMMITTED") // COMMITTED | STARTED | REVEALED
+  nonce            String
+  commitHex        String
+  serverSeed       String    // stored always; hidden in API response until REVEALED
+  clientSeed       String?
+  combinedSeed     String?
+  pegMapHash       String?
+  rows             Int       @default(12)
+  dropColumn       Int?
+  binIndex         Int?
+  payoutMultiplier Float?
+  betCents         Int?
+  pathJson         String?   // JSON array: ["L","R","L", ...]
+  revealedAt       DateTime?
+}
