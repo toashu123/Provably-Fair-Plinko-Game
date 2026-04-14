@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { computeAll } from "@/lib/engine/plinko";
 
+export const dynamic = "force-dynamic";
+
 /**
  * GET /api/verify?serverSeed=&clientSeed=&nonce=&dropColumn=
  *

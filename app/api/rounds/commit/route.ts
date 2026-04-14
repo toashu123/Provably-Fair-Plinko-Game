@@ -6,6 +6,8 @@ import {
   buildCommitHex,
 } from "@/lib/crypto/hash";
 
+export const dynamic = "force-dynamic";
+
 /**
  * POST /api/rounds/commit
  *

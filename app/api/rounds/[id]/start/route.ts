@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { computeAll } from "@/lib/engine/plinko";
 
+export const dynamic = "force-dynamic";
+
 /**
  * POST /api/rounds/:id/start
  *
